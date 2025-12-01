@@ -1,7 +1,7 @@
 {-----------------------------------------------------------------------------------}
 {                                                                                   }
 { File:       Velthuis.BigRationals.pas                                             }
-{ Function:   A multiple precision rational nubmer implementation, based            }
+{ Function:   A multiple precision rational number implementation, based            }
 {             on the BigInteger implementation in Velthuis.BigIntegers.pas.         }
 {                                                                                   }
 { Language:   Delphi version XE2 or later                                           }
