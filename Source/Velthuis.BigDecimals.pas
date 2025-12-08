@@ -70,7 +70,7 @@ unit Velthuis.BigDecimals;
       arr[I] := arr[I] * pi / (pi * BigDecimal(I) + BigDecimal.One);
 
   is 500 times(!) slower than the Double equivalent. That is extremely slow.
-  Note that simplyfying this to do BigDecimal(I) * pi only once will only take away 1% of that.
+  Note that simplifying this to do BigDecimal(I) * pi only once will only take away 1% of that.
   It is crucial to find out what makes this code so terribly slow.
 
   Note: probably BigInteger.DivMod is the slow part.
