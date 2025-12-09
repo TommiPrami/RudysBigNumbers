@@ -371,7 +371,7 @@ type
     /// <exception cref="EConvertError">EConvertError is raised if the result is too large to fit in an Int64.</exception>
     class operator Round(const Value: BigDecimal): Int64;
 
-    /// <summary>Truncates (ronds down towards 0) the given BigDecimal to an Int64.</summary>
+    /// <summary>Truncates (rounds down towards 0) the given BigDecimal to an Int64.</summary>
     /// <exception cref="EConvertError">EConvertError is raised if the result is too large to fit in an Int64.</exception>
     class operator Trunc(const Value: BigDecimal): Int64;
 
