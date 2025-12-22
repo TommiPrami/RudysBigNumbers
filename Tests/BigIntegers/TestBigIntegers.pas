@@ -153,7 +153,7 @@ begin
   else
   begin
     if BigInteger.StallAvoided then
-      Status('Asssembler: partial flag stall code used')
+      Status('Assembler: partial flag stall code used')
     else
       Status('Assembler: plain code');
   end;
