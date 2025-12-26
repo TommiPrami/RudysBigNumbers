@@ -65,7 +65,7 @@ begin
   else
   begin
     if BigInteger.StallAvoided then
-      Status('Asssembler: partial flag stall code used')
+      Status('Assembler: partial flag stall code used')
     else
       Status('Assembler: plain code');
   end;
@@ -76,9 +76,9 @@ end;
 
 procedure TTestBigIntegerIssues.TestParseHugeBase12;
 var
-  N,M : BigInteger;
+  N, M: BigInteger;
   NS, MS: string;
-  R : IRandom;
+  R: IRandom;
   NumBits: Integer;
 begin
   R := TDelphiRandom.Create(-332888001);

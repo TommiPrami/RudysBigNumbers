@@ -70,7 +70,7 @@ unit Velthuis.BigDecimals;
       arr[I] := arr[I] * pi / (pi * BigDecimal(I) + BigDecimal.One);
 
   is 500 times(!) slower than the Double equivalent. That is extremely slow.
-  Note that simplyfying this to do BigDecimal(I) * pi only once will only take away 1% of that.
+  Note that simplifying this to do BigDecimal(I) * pi only once will only take away 1% of that.
   It is crucial to find out what makes this code so terribly slow.
 
   Note: probably BigInteger.DivMod is the slow part.
@@ -371,7 +371,7 @@ type
     /// <exception cref="EConvertError">EConvertError is raised if the result is too large to fit in an Int64.</exception>
     class operator Round(const Value: BigDecimal): Int64;
 
-    /// <summary>Truncates (ronds down towards 0) the given BigDecimal to an Int64.</summary>
+    /// <summary>Truncates (rounds down towards 0) the given BigDecimal to an Int64.</summary>
     /// <exception cref="EConvertError">EConvertError is raised if the result is too large to fit in an Int64.</exception>
     class operator Trunc(const Value: BigDecimal): Int64;
 
@@ -1346,7 +1346,7 @@ begin
   Exponent := GetExponent(E) - 63;
   Sign := System.Math.Sign(E);
 
-  ConvertFromFloatComponents(Sign,Exponent, Significand, Self);
+  ConvertFromFloatComponents(Sign, Exponent, Significand, Self);
 end;
 {$ENDIF}
 
