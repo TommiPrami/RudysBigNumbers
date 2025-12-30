@@ -599,12 +599,16 @@ begin
     // reduce Value to range [0..MaxInt)
     LQuot := Int(Value / MaxInt) * MaxInt;
     Value := Value - LQuot;
-    // Hmmm... turn it into a suitable range
-    // FloatMod(Value, MaxInt, Quot, Rem);
-    // Quot := Int(Value / MaxInt);
-    // Value := Value - Quot * MaxInt;
-    // work on rem --> value, remember quot;
-    // raise EOverflow.CreateFmt('Value %g cannot be converted to an integer ratio', [Value]);
+    
+    {
+      // Hmmm... turn it into a suitable range
+      FloatMod(Value, MaxInt, LQuot, Rem);
+      LQuot := Int(Value / MaxInt);
+      Value := Value - LQuot * MaxInt;
+
+      // work on rem(ainder) --> value, remember LQuot;
+      // raise EOverflow.CreateFmt('Value %g cannot be converted to an integer ratio', [Value]);
+    }
   end;
 
   if Value = 0.0 then //FI:W542 Direct floating-point comparison
