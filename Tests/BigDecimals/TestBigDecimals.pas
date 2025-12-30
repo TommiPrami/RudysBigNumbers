@@ -488,7 +488,7 @@ begin
           L := InvalidRoundValue;
         on E: EConvertError do
         begin
-          // Note: this is the (silent) Java behaviour. In Delphi, I expect a proper EConvertError to occur,
+          // Note: this is the (silent) Java behavior. In Delphi, I expect a proper EConvertError to occur,
           // but here, values are made compatible with Java output.
           L := Int64(UInt64(A.RoundTo(0).UnscaledValue));
         end;
