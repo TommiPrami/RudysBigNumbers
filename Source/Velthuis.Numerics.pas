@@ -32,100 +32,100 @@ interface
 uses
   System.Math;
 
-// Return the number of set (1) bits in the given integers.
-function BitCount(U: UInt8): Integer; overload;
-function BitCount(U: UInt16): Integer; overload;
-function BitCount(S: Int32): Integer; overload;
-function BitCount(U: UInt32): Integer; overload;
-function BitCount(S: Int64): Integer; overload;
-function BitCount(S: UInt64): Integer; overload;
+  // Return the number of set (1) bits in the given integers.
+  function BitCount(const U: UInt8): Integer; overload;
+  function BitCount(const U: UInt16): Integer; overload;
+  function BitCount(const S: Int32): Integer; overload;
+  function BitCount(const U: UInt32): Integer; overload;
+  function BitCount(const S: Int64): Integer; overload;
+  function BitCount(const S: UInt64): Integer; overload;
+  
+  // Return the number of significant bits, excluding the sign bit.
+  function BitLength(const S: Int32): Integer; overload;
+  function BitLength(const U: UInt32): Integer; overload;
+  function BitLength(const S: Int64): Integer; overload;
+  function BitLength(const U: UInt64): Integer; overload;
+  
+  // Return the number of significant digits.
+  function DigitCount(const S: Int32): Int32; overload;
+  function DigitCount(U: UInt32): UInt32; overload;
+  
+  // Return an integer value with at most a single one-bit, in the position
+  // of the most significant one-bit in the specified integer value.
+  function HighestOneBit(const S: Int32): Int32; overload;
+  function HighestOneBit(const U: UInt32): UInt32; overload;
+  
+  // Checks if the given integer is a power of two.
+  function IsPowerOfTwo(const S: Int32): Boolean; overload;
+  function IsPowerOfTwo(const U: UInt32): Boolean; overload;
+  
+  // Return an integer value with at most a single one-bit, in the position
+  // of the least significant one-bit in the given integers value.
+  function LowestOneBit(const S: Int32): Int32; overload;
+  function LowestOneBit(const U: UInt32): UInt32; overload;
+  
+  // Return the number of leading (high order) zero-bits (excluding the sign bit) of
+  // the given integers.
+  function NumberOfLeadingZeros(U: UInt16): Integer; overload;
+  function NumberOfLeadingZeros(S: Int32): Integer; overload;
+  function NumberOfLeadingZeros(U: UInt32): Integer; overload;
+  function NumberOfLeadingZeros(S: Int64): Integer; overload;
+  function NumberOfLeadingZeros(U: UInt64): Integer; overload;
+  
+  // Return the number of trailing (low order) zero-bits of the given integers.
+  function NumberOfTrailingZeros(const U: UInt32): Integer; overload;
+  function NumberOfTrailingZeros(const U: UInt64): Integer; overload;
+  
+  // Reverse the bits of the given integers.
+  function Reverse(U: UInt8): UInt8; overload;
+  function Reverse(U: UInt16): UInt16; overload;
+  function Reverse(S: Int32): Int32; overload;
+  function Reverse(U: UInt32): UInt32; overload;
+  
+  // Reverse the bytes of the given integers.
+  function ReverseBytes(const S: Int32): Int32; overload;
+  function ReverseBytes(U: UInt32): UInt32; overload;
+  
+  // Rotate the given integers left by Distance bits.
+  function RotateLeft(S: Int32; Distance: Integer): Int32; overload;
+  function RotateLeft(U: UInt32; Distance: Integer): UInt32; overload;
 
-// Return the number of significant bits, excluding the sign bit.
-function BitLength(S: Int32): Integer; overload;
-function BitLength(U: UInt32): Integer; overload;
-function BitLength(S: Int64): Integer; overload;
-function BitLength(U: UInt64): Integer; overload;
-
-// Return the number of significant digits.
-function DigitCount(S: Int32): Int32; overload;
-function DigitCount(U: UInt32): UInt32; overload;
-
-// Return an integer value with at most a single one-bit, in the position
-// of the most significant one-bit in the specified integer value.
-function HighestOneBit(S: Int32): Int32; overload;
-function HighestOneBit(U: UInt32): UInt32; overload;
-
-// Checks if the given integer is a power of two.
-function IsPowerOfTwo(S: Int32): Boolean; overload;
-function IsPowerOfTwo(U: UInt32): Boolean; overload;
-
-// Return an integer value with at most a single one-bit, in the position
-// of the least significant one-bit in the given integers value.
-function LowestOneBit(S: Int32): Int32; overload;
-function LowestOneBit(U: UInt32): UInt32; overload;
-
-// Return the number of leading (high order) zero-bits (excluding the sign bit) of
-// the given integers.
-function NumberOfLeadingZeros(U: UInt16): Integer; overload;
-function NumberOfLeadingZeros(S: Int32): Integer; overload;
-function NumberOfLeadingZeros(U: UInt32): Integer; overload;
-function NumberOfLeadingZeros(S: Int64): Integer; overload;
-function NumberOfLeadingZeros(U: UInt64): Integer; overload;
-
-// Return the number of trailing (low order) zero-bits of the given integers.
-function NumberOfTrailingZeros(U: UInt32): Integer; overload;
-function NumberOfTrailingZeros(U: UInt64): Integer; overload;
-
-// Reverse the bits of the given integers.
-function Reverse(U: UInt8): UInt8; overload;
-function Reverse(U: UInt16): UInt16; overload;
-function Reverse(S: Int32): Int32; overload;
-function Reverse(U: UInt32): UInt32; overload;
-
-// Reverse the bytes of the given integers.
-function ReverseBytes(S: Int32): Int32; overload;
-function ReverseBytes(U: UInt32): UInt32; overload;
-
-// Rotate the given integers left by Distance bits.
-function RotateLeft(S: Int32; Distance: Integer): Int32; overload;
-function RotateLeft(U: UInt32; Distance: Integer): UInt32; overload;
-
-// Rotate the given integers right by Distance bits.
-function RotateRight(S: Int32; Distance: Integer): Int32; overload;
-function RotateRight(U: UInt32; Distance: Integer): UInt32; overload;
-
-// Returns the sign of the integer: -1 for negative, 0 for zero and 1 for positive.
-function Sign(S: Int32): TValueSign;
-
-// Return a binary representation of the given integers.
-function ToBinaryString(S: Int32): string; overload;
-function ToBinaryString(U: UInt32): string; overload;
-
-// Return a hexadecimal representation of the given integers.
-function ToHexString(S: Int32): string; overload;
-function ToHexString(U: UInt32): string; overload;
-
-// Return an octal representation of the given integers.
-function ToOctalString(S: Int32): string; overload;
-function ToOctalString(U: UInt32): string; overload;
-
-// Return a string representation of the given integers, in the given numerical base.
-function ToString(S: Int32; Base: Byte): string; overload;
-function ToString(U: UInt32; Base: Byte): string; overload;
-function ToString(S: Int32): string; overload;
-function ToString(U: UInt32): string; overload;
-
-// Compare the given integers and return -1 for less, 0 for equal and 1 for greater.
-function Compare(Left, Right: Int32): Integer; overload;
-function Compare(Left, Right: UInt32): Integer; overload;
-function Compare(Left, Right: Int64): Integer; overload;
-function Compare(Left, Right: UInt64): Integer; overload;
-
-// Calculate a hash code for the given integers.
-function HashCode(Value: Int32): UInt32; overload;
-function HashCode(Value: UInt32): UInt32; overload;
-function HashCode(Value: Int64): UInt32; overload;
-function HashCode(Value: UInt64): UInt32; overload;
+  // Rotate the given integers right by Distance bits.
+  function RotateRight(S: Int32; Distance: Integer): Int32; overload;
+  function RotateRight(U: UInt32; Distance: Integer): UInt32; overload;
+  
+  // Returns the sign of the integer: -1 for negative, 0 for zero and 1 for positive.
+  function Sign(const S: Int32): TValueSign;
+  
+  // Return a binary representation of the given integers.
+  function ToBinaryString(const S: Int32): string; overload;
+  function ToBinaryString(const U: UInt32): string; overload;
+  
+  // Return a hexadecimal representation of the given integers.
+  function ToHexString(const S: Int32): string; overload;
+  function ToHexString(const U: UInt32): string; overload;
+  
+  // Return an octal representation of the given integers.
+  function ToOctalString(const S: Int32): string; overload;
+  function ToOctalString(const U: UInt32): string; overload;
+  
+  // Return a string representation of the given integers, in the given numerical base.
+  function ToString(const S: Int32; const Base: Byte): string; overload;
+  function ToString(U: UInt32; Base: Byte): string; overload;
+  function ToString(const S: Int32): string; overload;
+  function ToString(const U: UInt32): string; overload;
+  
+  // Compare the given integers and return -1 for less, 0 for equal and 1 for greater.
+  function Compare(const Left, Right: Int32): Integer; overload;
+  function Compare(const Left, Right: UInt32): Integer; overload;
+  function Compare(const Left, Right: Int64): Integer; overload;
+  function Compare(const Left, Right: UInt64): Integer; overload;
+  
+  // Calculate a hash code for the given integers.
+  function HashCode(const Value: Int32): UInt32; overload;
+  function HashCode(const Value: UInt32): UInt32; overload;
+  function HashCode(const Value: Int64): UInt32; overload;
+  function HashCode(const Value: UInt64): UInt32; overload;
 
 implementation
 
@@ -153,53 +153,53 @@ const
 
   BitCounts: array[0..15] of Byte = (0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4);
 
-function BitCount(U: UInt8): Integer;
+function BitCount(const U: UInt8): Integer;
 begin
   Result := BitCounts[U and $0F] + BitCounts[U shr 4];
 end;
 
-function BitCount(U: UInt16): Integer;
+function BitCount(const U: UInt16): Integer;
 {$IF DEFINED(WIN32)}
 asm
-        MOV     DX,AX
-        SHR     DX,1
-        AND     DX,$5555
-        SUB     AX,DX
-        MOV     DX,AX
-        AND     AX,$3333
-        SHR     DX,2
-        AND     DX,$3333
-        ADD     AX,DX
-        MOV     DX,AX
-        SHR     DX,4
-        ADD     AX,DX
-        AND     AX,$0F0F
-        MOV     DX,AX
-        SHR     AX,8
-        ADD     AX,DX
-        AND     EAX,$7F
+        MOV     DX, AX
+        SHR     DX, 1
+        AND     DX, $5555
+        SUB     AX, DX
+        MOV     DX, AX
+        AND     AX, $3333
+        SHR     DX, 2
+        AND     DX, $3333
+        ADD     AX, DX
+        MOV     DX, AX
+        SHR     DX, 4
+        ADD     AX, DX
+        AND     AX, $0F0F
+        MOV     DX, AX
+        SHR     AX, 8
+        ADD     AX, DX
+        AND     EAX, $7F
 end;
 {$ELSEIF DEFINED(WIN64)}
 asm
         .NOFRAME
 
-        MOV     AX,CX
-        SHR     CX,1
-        AND     CX,$5555
-        SUB     AX,CX
-        MOV     CX,AX
-        AND     AX,$3333
-        SHR     CX,2
-        AND     CX,$3333
-        ADD     AX,CX
-        MOV     CX,AX
-        SHR     CX,4
-        ADD     AX,CX
-        AND     AX,$0F0F
-        MOV     CX,AX
-        SHR     AX,8
-        ADD     AX,CX
-        AND     EAX,$7F
+        MOV     AX, CX
+        SHR     CX, 1
+        AND     CX, $5555
+        SUB     AX, CX
+        MOV     CX, AX
+        AND     AX, $3333
+        SHR     CX, 2
+        AND     CX, $3333
+        ADD     AX, CX
+        MOV     CX, AX
+        SHR     CX, 4
+        ADD     AX, CX
+        AND     AX, $0F0F
+        MOV     CX, AX
+        SHR     AX, 8
+        ADD     AX, CX
+        AND     EAX, $7F
 end;
 {$ELSE PUREPASCAL}
 begin
@@ -207,64 +207,65 @@ begin
   U := (U and $3333) + ((U shr 2) and $3333);
   U := (U + (U shr 4)) and $0F0F;
   U := U + (U shr 8);
+  
   Result := U and $7F;
 end;
 {$IFEND PUREPASCAL}
 
-function BitCount(S: Int32): Integer;
+function BitCount(const S: Int32): Integer;
 begin
   Result := BitCount(UInt32(S));
 end;
 
 // Faster than 16 bit table lookups
-function BitCount(U: UInt32): Integer;
+function BitCount(const U: UInt32): Integer;
 {$IF DEFINED(WIN32)}
 asm
-        MOV     EDX,EAX
-        SHR     EDX,1
-        AND     EDX,$55555555
-        SUB     EAX,EDX
-        MOV     EDX,EAX
-        AND     EAX,$33333333
-        SHR     EDX,2
-        AND     EDX,$33333333
-        ADD     EAX,EDX
-        MOV     EDX,EAX
-        SHR     EDX,4
-        ADD     EAX,EDX
-        AND     EAX,$0F0F0F0F
-        MOV     EDX,EAX
-        SHR     EAX,8
-        ADD     EAX,EDX
-        MOV     EDX,EAX
-        SHR     EDX,16
-        ADD     EAX,EDX
-        AND     EAX,$7F
+        MOV     EDX, EAX
+        SHR     EDX, 1
+        AND     EDX, $55555555
+        SUB     EAX, EDX
+        MOV     EDX, EAX
+        AND     EAX, $33333333
+        SHR     EDX, 2
+        AND     EDX, $33333333
+        ADD     EAX, EDX
+        MOV     EDX, EAX
+        SHR     EDX, 4
+        ADD     EAX, EDX
+        AND     EAX, $0F0F0F0F
+        MOV     EDX, EAX
+        SHR     EAX, 8
+        ADD     EAX, EDX
+        MOV     EDX, EAX
+        SHR     EDX, 16
+        ADD     EAX, EDX
+        AND     EAX, $7F
 end;
 {$ELSEIF DEFINED(WIN64)}
 asm
         .NOFRAME
 
-        MOV     EAX,ECX
-        SHR     ECX,1
-        AND     ECX,$55555555
-        SUB     EAX,ECX
-        MOV     ECX,EAX
-        AND     EAX,$33333333
-        SHR     ECX,2
-        AND     ECX,$33333333
-        ADD     EAX,ECX
-        MOV     ECX,EAX
-        SHR     ECX,4
-        ADD     EAX,ECX
-        AND     EAX,$0F0F0F0F
-        MOV     ECX,EAX
-        SHR     EAX,8
-        ADD     EAX,ECX
-        MOV     ECX,EAX
-        SHR     ECX,16
-        ADD     EAX,ECX
-        AND     EAX,$7F
+        MOV     EAX, ECX
+        SHR     ECX, 1
+        AND     ECX, $55555555
+        SUB     EAX, ECX
+        MOV     ECX, EAX
+        AND     EAX, $33333333
+        SHR     ECX, 2
+        AND     ECX, $33333333
+        ADD     EAX, ECX
+        MOV     ECX, EAX
+        SHR     ECX, 4
+        ADD     EAX, ECX
+        AND     EAX, $0F0F0F0F
+        MOV     ECX, EAX
+        SHR     EAX, 8
+        ADD     EAX, ECX
+        MOV     ECX, EAX
+        SHR     ECX, 16
+        ADD     EAX, ECX
+        AND     EAX, $7F
 end;
 {$ELSE PUREPASCAL}
 begin
@@ -277,37 +278,37 @@ begin
 end;
 {$IFEND PUREPASCAL}
 
-function BitCount(S: Int64): Integer; overload;
+function BitCount(const S: Int64): Integer; overload;
 begin
   Result := BitCount(UInt32(S)) + BitCount(Int32(S shr 32));
 end;
 
-function BitCount(S: UInt64): Integer; overload;
+function BitCount(const S: UInt64): Integer; overload;
 begin
   Result := BitCount(UInt32(S)) + BitCount(UInt32(S shr 32));
 end;
 
-function BitLength(S: Int32): Integer;
+function BitLength(const S: Int32): Integer;
 begin
   Result := BitLength(UInt32(S));
 end;
 
-function BitLength(U: UInt32): Integer;
+function BitLength(const U: UInt32): Integer;
 begin
   Result := 32 - NumberOfLeadingZeros(U);
 end;
 
-function BitLength(S: Int64): Integer;
+function BitLength(const S: Int64): Integer;
 begin
   Result := 64 - NumberOfLeadingZeros(S);
 end;
 
-function BitLength(U: UInt64): Integer;
+function BitLength(const U: UInt64): Integer;
 begin
   Result := 64 - NumberOfLeadingZeros(U);
 end;
 
-function DigitCount(S: Int32): Int32; overload;
+function DigitCount(const S: Int32): Int32; overload;
 begin
   if S <> Low(Int32) then
     Result := DigitCount(UInt32(Abs(S)))
@@ -318,26 +319,30 @@ end;
 function DigitCount(U: UInt32): UInt32; overload;
 begin
   Result := 1;
+
   if U >= 100000000 then
   begin
     Inc(Result, 8);
     U := U div 100000000;
   end;
+
   if U >= 10000 then
   begin
     Inc(Result, 4);
     U := U div 10000;
   end;
+
   if U >= 100  then
   begin
     Inc(Result, 2);
     U := U div 100;
   end;
+
   if U >= 10 then
     Inc(Result);
 end;
 
-function IsPowerOfTwo(S: Int32): Boolean;
+function IsPowerOfTwo(const S: Int32): Boolean;
 begin
   if S <> Low(Int32) then
     Result := IsPowerofTwo(UInt32(Abs(S)))
@@ -345,17 +350,17 @@ begin
     Result := True;
 end;
 
-function IsPowerOfTwo(U: UInt32): Boolean;
+function IsPowerOfTwo(const U: UInt32): Boolean;
 begin
   Result := (U and (U - 1)) = 0;
 end;
 
-function HighestOneBit(S: Int32): Int32;
+function HighestOneBit(const S: Int32): Int32;
 begin
   Result := Int32(HighestOneBit(UInt32(S)));
 end;
 
-function HighestOneBit(U: UInt32): UInt32;
+function HighestOneBit(const U: UInt32): UInt32;
 begin
   if U = 0 then
     Result := 0
@@ -363,12 +368,12 @@ begin
     Result := UInt32(1) shl (31 - NumberOfLeadingZeros(U));
 end;
 
-function LowestOneBit(S: Int32): Int32;
+function LowestOneBit(const S: Int32): Int32;
 begin
   Result := Int32(LowestOneBit(UInt32(S)));
 end;
 
-function LowestOneBit(U: UInt32): UInt32;
+function LowestOneBit(const U: UInt32): UInt32;
 begin
   Result := U and -Int32(U);
 end;
@@ -376,31 +381,31 @@ end;
 function NumberOfLeadingZeros(U: UInt16): Integer;
 {$IF DEFINED(WIN32)}
 asm
-        MOVZX   EAX,AX
-        BSR     EDX,EAX
+        MOVZX   EAX, AX
+        BSR     EDX, EAX
         JNZ     @Invert
-        MOV     EAX,16
+        MOV     EAX, 16
         RET
 
 @Invert:
 
-        MOV     EAX,15
-        SUB     EAX,EDX
+        MOV     EAX, 15
+        SUB     EAX, EDX
 end;
 {$ELSEIF DEFINED(WIN64)}
 asm
         .NOFRAME
 
-        MOVZX   EAX,CX
-        BSR     ECX,EAX
+        MOVZX   EAX, CX
+        BSR     ECX, EAX
         JNZ     @Invert
-        MOV     EAX,16
+        MOV     EAX, 16
         RET
 
 @Invert:
 
-        MOV     EAX,15
-        SUB     EAX,ECX
+        MOV     EAX, 15
+        SUB     EAX, ECX
 end;
 {$ELSE PUREPASCAL}
 begin
@@ -409,21 +414,25 @@ begin
   else
   begin
     Result := 0;
+    
     if U <= High(Word) shr 8 then
     begin
       Result := Result + 8;
       U := U shl 8;
     end;
+    
     if U <= High(Word) shr 4 then
     begin
       Result := Result + 4;
       U := U shl 4;
     end;
+    
     if U <= High(Word) shr 2 then
     begin
       Result := Result + 2;
       U := U shl 2;
     end;
+    
     if U <= High(Word) shr 1 then
       Result := Result + 1;
   end;
@@ -438,15 +447,15 @@ end;
 function NumberOfLeadingZeros(U: UInt32): Integer;
 {$IF DEFINED(WIN32)}
 asm
-        BSR     EDX,EAX
+        BSR     EDX, EAX
         JNZ     @Invert
-        MOV     EAX,32
+        MOV     EAX, 32
         RET
 
 @Invert:
 
-        MOV     EAX,31
-        SUB     EAX,EDX
+        MOV     EAX, 31
+        SUB     EAX, EDX
 
 @Exit:
 end;
@@ -454,15 +463,15 @@ end;
 asm
          .NOFRAME
 
-         BSR    EDX,ECX
+         BSR    EDX, ECX
          JNZ    @Invert
-         MOV    EAX,32
+         MOV    EAX, 32
          RET
 
 @Invert:
 
-         MOV    EAX,31
-         SUB    EAX,EDX
+         MOV    EAX, 31
+         SUB    EAX, EDX
 
 @Exit:
 end;
@@ -476,26 +485,31 @@ begin
   else
   begin
     Result := 0;
+    
     if U <= High(Cardinal) shr 16 then
     begin
       Result := Result + 16;
       U := U shl 16;
     end;
+    
     if U <= High(Cardinal) shr 8 then
     begin
       Result := Result + 8;
       U := U shl 8;
     end;
+    
     if U <= High(Cardinal) shr 4 then
     begin
       Result := Result + 4;
       U := U shl 4;
     end;
+    
     if U <= High(Cardinal) shr 2 then
     begin
       Result := Result + 2;
       U := U shl 2;
     end;
+    
     if U <= High(Cardinal) shr 1 then
       Result := Result + 1;
   end;
@@ -511,6 +525,7 @@ function NumberOfLeadingZeros(U: UInt64): Integer;
 begin
   if U = 0 then
     Exit(1);
+    
   if U <= High(UInt32) then
     Result := NumberOfLeadingZeros(UInt32(U)) + 32
   else
@@ -518,12 +533,12 @@ begin
 end;
 
 // Faster than NumberOfTrailingZeros2().
-function NumberOfTrailingZeros(U: UInt32): Integer;
+function NumberOfTrailingZeros(const U: UInt32): Integer;
 {$IF DEFINED(WIN32)}
 asm
-        BSF     EAX,EAX
+        BSF     EAX, EAX
         JNZ     @Exit
-        MOV     EAX,32
+        MOV     EAX, 32
 
 @Exit:
 end;
@@ -531,9 +546,9 @@ end;
 asm
         .NOFRAME
 
-        BSF     EAX,ECX
+        BSF     EAX, ECX
         JNZ     @Exit
-        MOV     EAX,32
+        MOV     EAX, 32
 
 @Exit:
 end;
@@ -556,26 +571,26 @@ begin
 end;
 {$IFEND PUREPASCAL}
 
-function NumberOfTrailingZeros(U: UInt64): Integer;
+function NumberOfTrailingZeros(const U: UInt64): Integer;
 {$IF DEFINED(WIN32)}
 asm
-        BSF    EAX,DWORD PTR [U]
+        BSF    EAX, DWORD PTR [U]
         JNZ    @Exit
-        BSF    EAX,DWORD PTR [U+TYPE DWORD]
+        BSF    EAX, DWORD PTR [U+TYPE DWORD]
         JZ     @Ret64
-        ADD    EAX,32
+        ADD    EAX, 32
         JMP    @Exit
 @Ret64:
-        MOV    EAX,64
+        MOV    EAX, 64
 @Exit:
 end;
 {$ELSEIF DEFINED(WIN64)}
 asm
         .NOFRAME
 
-        BSF    RAX,RCX
+        BSF    RAX, RCX
         JNZ    @Exit
-        MOV    EAX,64
+        MOV    EAX, 64
 @Exit:
 end;
 {$ELSE PUREPASCAL}
@@ -596,6 +611,7 @@ begin
   U := ((U shr 1) and $55) or ((U and $55) shl 1);
   U := ((U shr 2) and $33) or ((U and $33) shl 2);
   U := (U shr 4) or (U shl 4);
+  
   Result := U;
 end;
 
@@ -605,6 +621,7 @@ begin
   U := ((U shr 2) and $3333) or ((U and $3333) shl 2);
   U := ((U shr 4) and $0F0F) or ((U and $0F0F) shl 4);
   U := Swap(U);
+  
   Result := U;
 end;
 
@@ -622,10 +639,11 @@ begin
   U := ((U shr 4) and $0F0F0F0F) or ((U and $0F0F0F0F) shl 4);  // Swap nibbles.
   U := ((U shr 8) and $00FF00FF) or ((U and $00FF00FF) shl 8);  // Swap bytes.
   U := (U shr 16) or (U shl 16);                                // Swap words.
+  
   Result := U;
 end;
 
-function ReverseBytes(S: Int32): Int32;
+function ReverseBytes(const S: Int32): Int32;
 begin
   Result := Int32(ReverseBytes(UInt32(S)));
 end;
@@ -635,6 +653,7 @@ function ReverseBytes(U: UInt32): UInt32;
 begin
   U := ((U shr 8) and $00FF00FF) or ((U and $00FF00FF) shl 8);  // Swap bytes.
   U := (U shr 16) or (U shl 16);                                // Swap words.
+  
   Result := U;
 end;
 
@@ -646,6 +665,7 @@ end;
 function RotateLeft(U: UInt32; Distance: Integer): UInt32;
 begin
   Distance := Distance and 31;
+
   Result := (U shl Distance) or (U shr (32 - Distance));
 end;
 
@@ -660,37 +680,37 @@ begin
   Result := (U shr Distance) or (U shl (32- Distance));
 end;
 
-function Sign(S: Int32): TValueSign;
+function Sign(const S: Int32): TValueSign;
 begin
   Result := System.Math.Sign(S);
 end;
 
-function ToBinaryString(S: Int32): string;
+function ToBinaryString(const S: Int32): string;
 begin
   Result := ToString(S, 2);
 end;
 
-function ToBinaryString(U: UInt32): string;
+function ToBinaryString(const U: UInt32): string;
 begin
   Result := ToString(U, 2);
 end;
 
-function ToHexString(S: Int32): string;
+function ToHexString(const S: Int32): string;
 begin
   Result := ToString(S, 16);
 end;
 
-function ToHexString(U: UInt32): string;
+function ToHexString(const U: UInt32): string;
 begin
   Result := ToString(U, 16);
 end;
 
-function ToOctalString(S: Int32): string;
+function ToOctalString(const S: Int32): string;
 begin
   Result := ToString(S, 8);
 end;
 
-function ToOctalString(U: UInt32): string;
+function ToOctalString(const U: UInt32): string;
 begin
   Result := ToString(U, 8);
 end;
@@ -698,7 +718,7 @@ end;
 const
   Digits: array[0..35] of Char = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-function ToString(S: Int32; Base: Byte): string;
+function ToString(const S: Int32; const Base: Byte): string;
 begin
   if S < 0 then
     Result := '-' + ToString(UInt32(Abs(S)), Base)
@@ -716,6 +736,7 @@ begin
   else
   begin
     Result := '';
+
     while U > 0 do
     begin
       Result := Digits[U mod Base] + Result;
@@ -724,17 +745,17 @@ begin
   end;
 end;
 
-function ToString(S: Int32): string;
+function ToString(const S: Int32): string;
 begin
   Result := ToString(S, 10);
 end;
 
-function ToString(U: UInt32): string;
+function ToString(const U: UInt32): string;
 begin
   Result := ToString(U, 10);
 end;
 
-function Compare(Left, Right: Int32): Integer;
+function Compare(const Left, Right: Int32): Integer;
 begin
   if Left > Right then
     Exit(1)
@@ -744,7 +765,7 @@ begin
     Exit(0);
 end;
 
-function Compare(Left, Right: UInt32): Integer;
+function Compare(const Left, Right: UInt32): Integer;
 begin
   if Left > Right then
     Exit(1)
@@ -754,7 +775,7 @@ begin
     Exit(0);
 end;
 
-function Compare(Left, Right: Int64): Integer;
+function Compare(const Left, Right: Int64): Integer;
 begin
   if Left > Right then
     Exit(1)
@@ -764,7 +785,7 @@ begin
     Exit(0);
 end;
 
-function Compare(Left, Right: UInt64): Integer;
+function Compare(const Left, Right: UInt64): Integer;
 begin
   if Left > Right then
     Exit(1)
@@ -774,22 +795,22 @@ begin
     Exit(0);
 end;
 
-function HashCode(Value: Int32): UInt32;
+function HashCode(const Value: Int32): UInt32;
 begin
   Result := UInt32(Value);
 end;
 
-function HashCode(Value: UInt32): UInt32;
+function HashCode(const Value: UInt32): UInt32;
 begin
   Result := Value;
 end;
 
-function HashCode(Value: Int64): UInt32;
+function HashCode(const Value: Int64): UInt32;
 begin
   Result := UInt32(Value) xor UInt32(Value shr 32);
 end;
 
-function HashCode(Value: UInt64): UInt32;
+function HashCode(const Value: UInt64): UInt32;
 begin
   Result := UInt32(Value) xor UInt32(Value shr 32);
 end;
