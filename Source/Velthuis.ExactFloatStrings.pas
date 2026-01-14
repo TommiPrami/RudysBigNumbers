@@ -88,7 +88,7 @@ begin
     DecimalPoint := -Exponent;
   end
   else
-    // BigInt must repeatedly be multipied by 2. This is done in one go, by shifting the BigInteger left by Exponent.
+    // BigInt must repeatedly be multiplied by 2. This is done in one go, by shifting the BigInteger left by Exponent.
     BigInt := BigInt shl Exponent;
 
   Result := BigInt.ToString;
@@ -151,7 +151,7 @@ begin
     DecimalPoint := -Exponent;
   end
   else
-    // BigInt must repeatedly be multipied by 2. This is done in one go, by shifting the BigInteger left.
+    // BigInt must repeatedly be multiplied by 2. This is done in one go, by shifting the BigInteger left.
     BigInt := BigInt shl Exponent;
 
   Result := BigInt.ToString;
@@ -213,7 +213,7 @@ begin
     DecimalPoint := -Exponent;
   end
   else
-    // BigInt must repeatedly be multipied by 2. This is done in one go, by shifting the BigInteger left.
+    // BigInt must repeatedly be multiplied by 2. This is done in one go, by shifting the BigInteger left.
     BigInt := BigInt shl Exponent;
 
   Result := BigInt.ToString;
